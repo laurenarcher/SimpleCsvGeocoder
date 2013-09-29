@@ -27,7 +27,7 @@ def csvGeocoder(data):
             new_line = line + Latitude + Longitude
             csv.writer(output_file).writerow(new_line)
             time.sleep(.25) #This throttles your requests. The GoogleAPI doesn't like too many requests per second.
-            print new_line
+            print new_line #Printing to the console makes the process a lot longer. Omit for speed.
     
     del url,City,Address,Ward,Status,ListDate,IntentionDate,ByLaw,PartIVDate,PartVDate,HeritageDistrict,DistrictStatus,HeritageEasement,RegistrationDate,BuildingType,ArchitectBuilder,ConstructionYear,Province,Country,FullAddress,Details,DemoDate,PrimaryAddress, line
     del data
