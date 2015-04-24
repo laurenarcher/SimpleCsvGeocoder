@@ -22,11 +22,11 @@ def csvGeocoder(data):
         else:
             #I use a column with the Full Address (Street Number, Street, City, Provice/State, Country) But you could concatenate from multiple fields too.
             results = Geocoder.geocode(FullAddress)
-            Latitude = [results[0].coordinates[0]] 
-            Longitude = [results[0].coordinates[1]]
+            Latitude = [results.coordinates[0]] 
+            Longitude = [results.coordinates[1]]
             new_line = line + Latitude + Longitude
             csv.writer(output_file).writerow(new_line)
-            time.sleep(.25) #This throttles your requests. The GoogleAPI doesn't like too many requests per second.
+            time.sleep(.21) #This throttles your requests. The GoogleAPI doesn't like too many requests per second.
             print new_line #Printing to the console makes the process a lot longer. Omit for speed.
     
     del url,City,Address,Ward,Status,ListDate,IntentionDate,ByLaw,PartIVDate,PartVDate,HeritageDistrict,DistrictStatus,HeritageEasement,RegistrationDate,BuildingType,ArchitectBuilder,ConstructionYear,Province,Country,FullAddress,Details,DemoDate,PrimaryAddress, line
@@ -34,4 +34,3 @@ def csvGeocoder(data):
 
     input_file.close()
     output_file.close()
-
